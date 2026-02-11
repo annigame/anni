@@ -6,11 +6,56 @@
 <title>Anni - Daily Temporal Puzzle</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Helvetica Neue',Arial,sans-serif;background:#000;color:#fff;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}.container{max-width:600px;width:100%;padding-bottom:100px}h1{font-family:'Orbitron',sans-serif;text-align:center;font-size:4em;margin-bottom:5px;font-weight:900;letter-spacing:12px}.subtitle{text-align:center;color:#888;margin-bottom:15px;font-size:.85em;letter-spacing:3px}.day-num{text-align:center;color:#666;font-size:.75em;letter-spacing:2px;margin-bottom:40px}.intro{background:#0a0a0a;border:1px solid #222;border-radius:4px;padding:40px;line-height:1.8}.intro p{margin-bottom:15px;color:#aaa}.intro .cust{color:#fff;font-style:italic;border-left:2px solid #666;padding-left:15px;margin-top:20px}.btn-start{display:block;margin:25px auto 0;padding:15px 50px;background:#fff;color:#000;border:none;border-radius:4px;font-size:1em;cursor:pointer;font-weight:600;letter-spacing:2px}.btn-start:hover{background:#ddd}.game{display:none}.clues{margin-bottom:40px}.clue{margin-bottom:20px;padding:20px;background:#0a0a0a;border-radius:4px;border-left:2px solid #444;min-height:90px}.clue.locked{opacity:.25;border-left-color:#222}.clue-lbl{font-size:.7em;color:#555;margin-bottom:10px;letter-spacing:1px}.clue-txt{font-size:.95em;line-height:1.7;color:#ccc;font-style:italic}.gsec{margin-bottom:40px}.gleft{text-align:center;font-size:.85em;color:#666;margin-bottom:25px;letter-spacing:1px}.dboxes{display:flex;justify-content:center;gap:10px;margin-bottom:20px}.dbox{width:60px;height:70px;background:#0a0a0a;border:2px solid #222;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:2em;font-weight:300}.dbox.active{border-color:#fff;background:#111;box-shadow:0 0 10px rgba(255,255,255,.1)}.dbox.filled{border-color:#555}.btns{display:flex;justify-content:center;gap:15px}button{padding:12px 40px;background:#fff;color:#000;border:none;border-radius:4px;font-size:.95em;cursor:pointer;font-weight:500;letter-spacing:1px}button:hover{background:#ddd}button.sec{background:transparent;color:#fff;border:1px solid #444}button.sec:hover{border-color:#888;background:#111}.hist{margin-top:30px}.gitem{padding:15px;margin-bottom:10px;background:#0a0a0a;border-radius:4px;display:flex;justify-content:space-between;border-left:3px solid #222}.gitem.low{border-left-color:#4a9eff}.gitem.high{border-left-color:#ff6b6b}.gitem.win{border-left-color:#51cf66;background:#0a1f0a}.gyear{font-size:1.3em;font-weight:300}.fb{font-size:.9em;color:#777}.fb.win{color:#51cf66}.over{text-align:center;padding:40px;background:#0a0a0a;border-radius:4px;margin-top:30px;border:1px solid #222}.over h2{margin-bottom:20px;font-weight:300;font-size:1.8em;letter-spacing:3px}.ans{font-size:3em;margin:20px 0;font-weight:300;font-family:'Orbitron',sans-serif;letter-spacing:5px}.rmsg{color:#888;margin-bottom:10px;font-style:italic}.cmsg{color:#aaa;margin:20px 0;font-size:.9em;line-height:1.6}.share{margin-top:25px}.btn-share{background:#4a9eff;color:#fff;padding:12px 30px;border:none;border-radius:4px;cursor:pointer;font-size:.95em;font-weight:600;letter-spacing:1px}.btn-share:hover{background:#3a8eef}.stxt{margin-top:15px;padding:15px;background:#111;border-radius:4px;font-family:monospace;font-size:.85em;line-height:1.6;color:#aaa;display:none}.streak{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:90%;max-width:600px;background:#0a0a0a;border:1px solid #222;border-radius:4px;padding:15px;display:flex;align-items:center;gap:20px}.slbl{font-size:.75em;color:#666;letter-spacing:1px}.snum{font-size:1.5em;font-weight:700;font-family:'Orbitron',sans-serif}.sarc{flex:1;height:8px;background:#111;border-radius:4px;overflow:hidden}.sfill{height:100%;background:linear-gradient(90deg,#4a9eff,#51cf66);border-radius:4px;transition:width .5s}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Helvetica Neue',Arial,sans-serif;background:#000;color:#fff;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;transition:background .3s,color .3s;font-size:16px}
+body.light-mode{background:#f5f5f5;color:#000}
+.container{max-width:600px;width:100%;padding-bottom:100px}
+.theme-toggle{position:fixed;top:20px;right:20px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:50%;width:44px;height:44px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;transition:all .3s;z-index:1000}
+.theme-toggle:hover{background:rgba(255,255,255,.2)}
+body.light-mode .theme-toggle{background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.1)}
+body.light-mode .theme-toggle:hover{background:rgba(0,0,0,.1)}h1{font-family:'Orbitron',sans-serif;text-align:center;font-size:4em;margin-bottom:5px;font-weight:900;letter-spacing:12px}
+.subtitle{text-align:center;color:#888;margin-bottom:15px;font-size:.9em;letter-spacing:3px}
+body.light-mode .subtitle{color:#666}
+.day-num{text-align:center;color:#666;font-size:.8em;letter-spacing:2px;margin-bottom:40px}
+body.light-mode .day-num{color:#888}.intro{background:#0a0a0a;border:1px solid #222;border-radius:4px;padding:40px;line-height:1.8}
+body.light-mode .intro{background:#fff;border:1px solid #ddd}
+.intro p{margin-bottom:15px;color:#aaa;font-size:1.05em}
+body.light-mode .intro p{color:#555}
+.intro .cust{color:#fff;font-style:italic;border-left:2px solid #666;padding-left:15px;margin-top:20px;font-size:1.05em}
+body.light-mode .intro .cust{color:#000;border-left-color:#999}.btn-start{display:block;margin:25px auto 0;padding:15px 50px;background:#fff;color:#000;border:none;border-radius:4px;font-size:1em;cursor:pointer;font-weight:600;letter-spacing:2px}.btn-start:hover{background:#ddd}.game{display:none}.clues{margin-bottom:40px}.clue{margin-bottom:20px;padding:20px;background:#0a0a0a;border-radius:4px;border-left:2px solid #444;min-height:90px}
+body.light-mode .clue{background:#fff;border:1px solid #ddd;border-left:2px solid #999}
+.clue.locked{opacity:.25;border-left-color:#222}
+body.light-mode .clue.locked{border-left-color:#ccc}
+.clue-lbl{font-size:.75em;color:#555;margin-bottom:10px;letter-spacing:1px}
+body.light-mode .clue-lbl{color:#888}
+.clue-txt{font-size:1em;line-height:1.7;color:#ccc;font-style:italic}
+body.light-mode .clue-txt{color:#333}.gsec{margin-bottom:40px}.gleft{text-align:center;font-size:.85em;color:#666;margin-bottom:25px;letter-spacing:1px}.dboxes{display:flex;justify-content:center;gap:10px;margin-bottom:20px}.dbox{width:60px;height:70px;background:#0a0a0a;border:2px solid #222;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:2em;font-weight:300}.dbox.active{border-color:#fff;background:#111;box-shadow:0 0 10px rgba(255,255,255,.1)}.dbox.filled{border-color:#555}.btns{display:flex;justify-content:center;gap:15px}button{padding:12px 40px;background:#fff;color:#000;border:none;border-radius:4px;font-size:.95em;cursor:pointer;font-weight:500;letter-spacing:1px}button:hover{background:#ddd}button.sec{background:transparent;color:#fff;border:1px solid #444}button.sec:hover{border-color:#888;background:#111}.hist{margin-top:30px}.gitem{padding:15px;margin-bottom:10px;background:#0a0a0a;border-radius:4px;display:flex;justify-content:space-between;border-left:3px solid #222}
+body.light-mode .gitem{background:#fff;border:1px solid #ddd;border-left:3px solid #ccc}
+.gitem.low{border-left-color:#4a9eff}
+.gitem.high{border-left-color:#ff6b6b}
+.gitem.win{border-left-color:#51cf66;background:#0a1f0a}
+body.light-mode .gitem.win{background:#e8f5e9}
+.gyear{font-size:1.4em;font-weight:300}
+.fb{font-size:.95em;color:#777}
+body.light-mode .fb{color:#666}
+.fb.win{color:#51cf66}
+body.light-mode .fb.win{color:#2e7d32}.over{text-align:center;padding:40px;background:#0a0a0a;border-radius:4px;margin-top:30px;border:1px solid #222}
+body.light-mode .over{background:#fff;border:1px solid #ddd}
+.over h2{margin-bottom:20px;font-weight:300;font-size:1.9em;letter-spacing:3px}
+.ans{font-size:3.2em;margin:20px 0;font-weight:300;font-family:'Orbitron',sans-serif;letter-spacing:5px}
+.rmsg{color:#888;margin-bottom:10px;font-style:italic;font-size:1.05em}
+body.light-mode .rmsg{color:#666}
+.cmsg{color:#aaa;margin:20px 0;font-size:.95em;line-height:1.6}
+body.light-mode .cmsg{color:#555}.share{margin-top:25px}.btn-share{background:#4a9eff;color:#fff;padding:12px 30px;border:none;border-radius:4px;cursor:pointer;font-size:.95em;font-weight:600;letter-spacing:1px}.btn-share:hover{background:#3a8eef}.stxt{margin-top:15px;padding:15px;background:#111;border-radius:4px;font-family:monospace;font-size:.85em;line-height:1.6;color:#aaa;display:none}.streak{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:90%;max-width:600px;background:#0a0a0a;border:1px solid #222;border-radius:4px;padding:15px;display:flex;align-items:center;gap:20px}
+body.light-mode .streak{background:#fff;border:1px solid #ddd}
+.slbl{font-size:.8em;color:#666;letter-spacing:1px}
+body.light-mode .slbl{color:#888}
+.snum{font-size:1.6em;font-weight:700;font-family:'Orbitron',sans-serif}.sarc{flex:1;height:8px;background:#111;border-radius:4px;overflow:hidden}.sfill{height:100%;background:linear-gradient(90deg,#4a9eff,#51cf66);border-radius:4px;transition:width .5s}
 </style>
 </head>
 <body>
 <div class="container">
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
 <h1>ANNI</h1>
 <p class="subtitle">TEMPORAL NAVIGATION</p>
 <p class="day-num" id="dn"></p>
@@ -121,7 +166,7 @@ const D=[
 {y:2022,c:["Putin's tanks rolled toward Kyiv as Europe united against invasion.","Russia launched full-scale war against Ukraine in February escalation.","Russia invaded Ukraine, triggering Europe's largest land war since 1945."]}
 ];
 let cur,gs=[],inp='';
-function getDay(){const e=new Date('2025-01-01'),t=new Date();t.setHours(0,0,0,0);return Math.floor((t-e)/864e5)+1}
+function getDay(){const e=new Date('2026-02-12'),t=new Date();t.setHours(0,0,0,0);return Math.floor((t-e)/864e5)+1}
 function getPuz(){return D[getDay()%D.length]}
 function loadSt(){try{const s=localStorage.getItem('anniState');if(!s)return null;const d=JSON.parse(s);return d.day===getDay()?d:null}catch(e){return null}}
 function saveSt(g,w,l){try{localStorage.setItem('anniState',JSON.stringify({day:getDay(),gs:g,w:w,l:l}))}catch(e){}}
@@ -129,7 +174,10 @@ function loadStr(){try{const s=localStorage.getItem('anniStreak');return s?JSON.
 function saveStr(s){try{localStorage.setItem('anniStreak',JSON.stringify(s))}catch(e){}}
 function updStr(w){const s=loadStr(),d=getDay();if(w){if(d===s.l+1||s.l===0){s.c++;s.l=d}else if(d>s.l+1){s.c=1;s.l=d}}else{if(d>s.l+1){s.c=0;s.l=0}}saveStr(s);dispStr()}
 function dispStr(){const s=loadStr();document.getElementById('sn').textContent=s.c;document.getElementById('sf').style.width=Math.min(s.c/30*100,100)+'%'}
-function start(){const st=loadSt();if(st&&(st.w||st.l)){showDone(st);return}document.getElementById('intro').style.display='none';document.getElementById('game').style.display='block';init()}
+function toggleTheme(){document.body.classList.toggle('light-mode');const isLight=document.body.classList.contains('light-mode');document.querySelector('.theme-toggle').textContent=isLight?'☀️':'🌙';try{localStorage.setItem('anniTheme',isLight?'light':'dark')}catch(e){}}
+function loadTheme(){try{const theme=localStorage.getItem('anniTheme');if(theme==='light'){document.body.classList.add('light-mode');document.querySelector('.theme-toggle').textContent='☀️'}}catch(e){}}
+function focusInput(){document.getElementById('hiddenInput').focus()}
+function start(){const st=loadSt();if(st&&(st.w||st.l)){showDone(st);return}document.getElementById('intro').style.display='none';document.getElementById('game').style.display='block';init();focusInput()}
 function init(){cur=getPuz();const st=loadSt();if(st&&!st.w&&!st.l){gs=st.gs;gs.forEach(g=>addH(g,1));if(gs.length>=2){document.getElementById('c2').classList.remove('locked');document.getElementById('c2t').textContent=cur.c[1]}if(gs.length>=4){document.getElementById('c3').classList.remove('locked');document.getElementById('c3t').textContent=cur.c[2]}}else{gs=[]}inp='';document.getElementById('hist').innerHTML='';document.getElementById('over').style.display='none';document.getElementById('gsec').style.display='block';document.getElementById('c1').classList.remove('locked');if(gs.length<2)document.getElementById('c2').classList.add('locked');if(gs.length<4)document.getElementById('c3').classList.add('locked');document.getElementById('c1t').textContent=cur.c[0];if(gs.length<2)document.getElementById('c2t').textContent='Locked...';if(gs.length<4)document.getElementById('c3t').textContent='Locked...';upd();updL();document.getElementById('dn').textContent='ANNI #'+getDay();dispStr()}
 function showDone(st){document.getElementById('intro').style.display='none';document.getElementById('game').style.display='block';cur=getPuz();gs=st.gs;gs.forEach(g=>addH(g,1));document.getElementById('c1').classList.remove('locked');document.getElementById('c2').classList.remove('locked');document.getElementById('c3').classList.remove('locked');document.getElementById('c1t').textContent=cur.c[0];document.getElementById('c2t').textContent=cur.c[1];document.getElementById('c3t').textContent=cur.c[2];fin(st.w,1);document.getElementById('dn').textContent='ANNI #'+getDay();dispStr()}
 function upd(){const b=document.querySelectorAll('.dbox');b.forEach((x,i)=>{x.textContent=inp[i]||'';x.classList.remove('active','filled');if(i===inp.length&&inp.length<4)x.classList.add('active');else if(i<inp.length)x.classList.add('filled')})}
@@ -141,7 +189,9 @@ function fin(w,r){document.getElementById('gsec').style.display='none';document.
 function genSh(w){let t=`Anni #${getDay()} ${w?gs.length:'X'}/6\n\n`;gs.forEach(g=>{t+=g===cur.y?'🟩':g<cur.y?'🔵':'🔴'});document.getElementById('st').textContent=t;document.getElementById('st').style.display='block'}
 function shr(){navigator.clipboard.writeText(document.getElementById('st').textContent).then(()=>{const b=document.querySelector('.btn-share'),o=b.textContent;b.textContent='COPIED!';setTimeout(()=>b.textContent=o,2e3)})}
 document.addEventListener('keydown',e=>{if(document.getElementById('gsec').style.display==='none')return;if(e.key>='0'&&e.key<='9'&&inp.length<4){inp+=e.key;upd()}else if(e.key==='Backspace'){inp=inp.slice(0,-1);upd()}else if(e.key==='Enter'&&inp.length===4)sub();else if(e.key==='Escape')clr()});
-window.onload=()=>{const st=loadSt();st&&(st.w||st.l)?showDone(st):(dispStr(),document.getElementById('dn').textContent='ANNI #'+getDay())};
+document.getElementById('hiddenInput').addEventListener('input',e=>{const val=e.target.value.replace(/\D/g,'');inp=val.slice(0,4);upd();if(inp.length===4){e.target.value=''}});
+document.getElementById('hiddenInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&inp.length===4){e.preventDefault();sub()}else if(e.key==='Escape'){e.preventDefault();clr()}});
+window.onload=()=>{loadTheme();const st=loadSt();st&&(st.w||st.l)?showDone(st):(dispStr(),document.getElementById('dn').textContent='ANNI #'+getDay())};
 </script>
 </body>
 </html>
