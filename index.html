@@ -189,10 +189,7 @@ function fin(w,r){document.getElementById('gsec').style.display='none';document.
 function genSh(w){let t=`Anni #${getDay()} ${w?gs.length:'X'}/6\n\n`;gs.forEach(g=>{t+=g===cur.y?'🟩':g<cur.y?'🔵':'🔴'});document.getElementById('st').textContent=t;document.getElementById('st').style.display='block'}
 function shr(){navigator.clipboard.writeText(document.getElementById('st').textContent).then(()=>{const b=document.querySelector('.btn-share'),o=b.textContent;b.textContent='COPIED!';setTimeout(()=>b.textContent=o,2e3)})}
 document.addEventListener('keydown',e=>{if(document.getElementById('gsec').style.display==='none')return;if(e.key>='0'&&e.key<='9'&&inp.length<4){inp+=e.key;upd()}else if(e.key==='Backspace'){inp=inp.slice(0,-1);upd()}else if(e.key==='Enter'&&inp.length===4)sub();else if(e.key==='Escape')clr()});
-document.getElementById('hiddenInput').addEventListener('input',e=>{const val=e.target.value.replace(/\D/g,'');inp=val.slice(0,4);upd();e.target.value=inp});
-document.getElementById('hiddenInput').addEventListener('keydown',e=>{if(e.key==='Enter'&&inp.length===4){e.preventDefault();sub()}else if(e.key==='Backspace'&&inp.length>0){e.preventDefault();inp=inp.slice(0,-1);upd();e.target.value=inp}else if(e.key==='Escape'){e.preventDefault();clr();e.target.value=''}});
-document.querySelectorAll('.dbox').forEach(box=>box.addEventListener('click',focusInput));
-window.onload=()=>{loadTheme();const st=loadSt();st&&(st.w||st.l)?showDone(st):(dispStr(),document.getElementById('dn').textContent='ANNI #'+getDay())};
+window.onload=()=>{loadTheme();const st=loadSt();st&&(st.w||st.l)?showDone(st):(dispStr(),document.getElementById('dn').textContent='ANNI #'+getDay());const hiddenInput=document.getElementById('hiddenInput');if(hiddenInput){hiddenInput.addEventListener('input',e=>{const val=e.target.value.replace(/\D/g,'');inp=val.slice(0,4);upd();e.target.value=inp});hiddenInput.addEventListener('keydown',e=>{if(e.key==='Enter'&&inp.length===4){e.preventDefault();sub()}else if(e.key==='Backspace'&&inp.length>0){e.preventDefault();inp=inp.slice(0,-1);upd();e.target.value=inp}else if(e.key==='Escape'){e.preventDefault();clr();e.target.value=''}});document.querySelectorAll('.dbox').forEach(box=>box.addEventListener('click',focusInput))}};
 </script>
 </body>
 </html>
