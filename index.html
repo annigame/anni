@@ -29,13 +29,13 @@ body.light-mode .clue.locked{border-left-color:#ccc}
 .clue-lbl{font-size:.75em;color:#555;margin-bottom:10px;letter-spacing:1px}
 body.light-mode .clue-lbl{color:#888}
 .clue-txt{font-size:1em;line-height:1.7;color:#ccc;font-style:italic}
-body.light-mode .clue-txt{color:#333}.gsec{margin-bottom:40px}
-.mobile-input{width:100%;max-width:300px;margin:0 auto 20px;display:block;padding:15px;font-size:1.5em;text-align:center;border:2px solid #444;background:#0a0a0a;color:#fff;border-radius:4px;letter-spacing:8px;-webkit-appearance:none}
-body.light-mode .mobile-input{background:#fff;color:#000;border:2px solid #999}
-.mobile-input:focus{outline:none;border-color:#4a9eff;background:#111}
-body.light-mode .mobile-input:focus{background:#f8f8f8}
-.mobile-input::placeholder{color:#555}
-body.light-mode .mobile-input::placeholder{color:#999}.gleft{text-align:center;font-size:.85em;color:#666;margin-bottom:25px;letter-spacing:1px}.dboxes{display:flex;justify-content:center;gap:10px;margin-bottom:20px}.dbox{width:60px;height:70px;background:#0a0a0a;border:2px solid #222;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:2em;font-weight:300}.dbox.active{border-color:#fff;background:#111;box-shadow:0 0 10px rgba(255,255,255,.1)}.dbox.filled{border-color:#555}.btns{display:flex;justify-content:center;gap:15px}button{padding:12px 40px;background:#fff;color:#000;border:none;border-radius:4px;font-size:.95em;cursor:pointer;font-weight:500;letter-spacing:1px}button:hover{background:#ddd}button.sec{background:transparent;color:#fff;border:1px solid #444}button.sec:hover{border-color:#888;background:#111}.hist{margin-top:30px}.gitem{padding:15px;margin-bottom:10px;background:#0a0a0a;border-radius:4px;display:flex;justify-content:space-between;border-left:3px solid #222}
+body.light-mode .clue-txt{color:#333}.gsec{margin-bottom:40px}.gleft{text-align:center;font-size:.85em;color:#666;margin-bottom:25px;letter-spacing:1px}.dboxes{display:flex;justify-content:center;gap:10px;margin-bottom:20px}.dbox{width:60px;height:70px;background:#0a0a0a;border:2px solid #222;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:2em;font-weight:300;color:#fff;cursor:pointer;user-select:none}
+body.light-mode .dbox{background:#fff;border:2px solid #ddd;color:#000}
+.dbox.active{border-color:#fff;background:#111;box-shadow:0 0 10px rgba(255,255,255,.1)}
+body.light-mode .dbox.active{border-color:#000;background:#f0f0f0;box-shadow:0 0 10px rgba(0,0,0,.1)}
+.dbox.filled{border-color:#555}
+body.light-mode .dbox.filled{border-color:#666}
+.btns{display:flex;justify-content:center;gap:15px}button{padding:12px 40px;background:#fff;color:#000;border:none;border-radius:4px;font-size:.95em;cursor:pointer;font-weight:500;letter-spacing:1px}button:hover{background:#ddd}button.sec{background:transparent;color:#fff;border:1px solid #444}button.sec:hover{border-color:#888;background:#111}.hist{margin-top:30px}.gitem{padding:15px;margin-bottom:10px;background:#0a0a0a;border-radius:4px;display:flex;justify-content:space-between;border-left:3px solid #222}
 body.light-mode .gitem{background:#fff;border:1px solid #ddd;border-left:3px solid #ccc}
 .gitem.low{border-left-color:#4a9eff}
 .gitem.high{border-left-color:#ff6b6b}
@@ -51,107 +51,128 @@ body.light-mode .over{background:#fff;border:1px solid #ddd}
 .ans{font-size:3.2em;margin:20px 0;font-weight:300;font-family:'Orbitron',sans-serif;letter-spacing:5px}
 .rmsg{color:#888;margin-bottom:10px;font-style:italic;font-size:1.05em}
 body.light-mode .rmsg{color:#666}
-.cmsg{color:#aaa;margin:20px 0;font-size:.95em;line-height:1.6}
-body.light-mode .cmsg{color:#555}.share{margin-top:25px}.btn-share{background:#4a9eff;color:#fff;padding:12px 30px;border:none;border-radius:4px;cursor:pointer;font-size:.95em;font-weight:600;letter-spacing:1px}.btn-share:hover{background:#3a8eef}.stxt{margin-top:15px;padding:15px;background:#111;border-radius:4px;font-family:monospace;font-size:.85em;line-height:1.6;color:#aaa;display:none}.streak{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:90%;max-width:600px;background:#0a0a0a;border:1px solid #222;border-radius:4px;padding:15px;display:flex;align-items:center;gap:20px}
-body.light-mode .streak{background:#fff;border:1px solid #ddd}
-.slbl{font-size:.8em;color:#666;letter-spacing:1px}
-body.light-mode .slbl{color:#888}
-.snum{font-size:1.6em;font-weight:700;font-family:'Orbitron',sans-serif}.sarc{flex:1;height:8px;background:#111;border-radius:4px;overflow:hidden}.sfill{height:100%;background:linear-gradient(90deg,#4a9eff,#51cf66);border-radius:4px;transition:width .5s}
+.cclose{color:#888;margin-top:15px;font-size:.95em;line-height:1.6}
+body.light-mode .cclose{color:#666}
+.st{margin-top:20px;background:#111;padding:15px;border-radius:4px;font-family:monospace;white-space:pre;font-size:.9em;display:none}
+body.light-mode .st{background:#f0f0f0;color:#000}
+.btn-share{margin-top:15px}
+#hiddenInput{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.streak{margin-top:40px;text-align:center}.shead{font-size:.8em;color:#666;letter-spacing:2px;margin-bottom:10px}
+body.light-mode .shead{color:#888}
+.snum{font-size:2.5em;font-weight:300;margin-bottom:10px;font-family:'Orbitron',sans-serif}
+.sbar{width:100%;height:8px;background:#222;border-radius:4px;overflow:hidden;margin-top:10px}
+body.light-mode .sbar{background:#ddd}
+.sfill{height:100%;background:linear-gradient(90deg,#4a9eff,#51cf66);transition:width .3s}
 </style>
 </head>
 <body>
+<div class="theme-toggle" onclick="toggleTheme()">🌙</div>
 <div class="container">
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+<div id="intro" class="intro">
 <h1>ANNI</h1>
-<p class="subtitle">TEMPORAL NAVIGATION</p>
-<p class="day-num" id="dn"></p>
-<div class="intro" id="intro">
-<p>You are a traveler lost in time.</p>
-<p>Displaced from your origin point, you drift through the currents of history. Each moment you remain unanchored weakens your connection to reality.</p>
-<p>To navigate forward, you must identify precisely when you are. The temporal coordinates, the year, are your only means of escape.</p>
-<p class="cust">"I am the Custodian. I will guide you through the echoes of each era. Listen carefully to what I show you. You have six attempts to determine your location before this moment becomes your prison."</p>
+<div class="subtitle">DAILY TEMPORAL PUZZLE</div>
+<div class="day-num" id="dn">ANNI #1</div>
+<p>You are lost in time.</p>
+<p>A temporal navigator has left you clues to find your way back. Each day presents a different moment in history—your task is to identify the exact year.</p>
+<p>You have six attempts. After your second guess, you will unlock a second clue. After your fourth guess, a third clue will reveal itself.</p>
+<p>Are you ready to begin your journey through time?</p>
+<div class="cust">"Not all who wander are lost, but you certainly are. Let me help you find your way home."</div>
 <button class="btn-start" onclick="start()">BEGIN NAVIGATION</button>
+<div class="streak">
+<div class="shead">CURRENT STREAK</div>
+<div class="snum" id="sn">0</div>
+<div class="sbar"><div class="sfill" id="sf"></div></div>
 </div>
-<div class="game" id="game">
+</div>
+<div id="game" class="game">
+<h1>ANNI</h1>
+<div class="subtitle">DAILY TEMPORAL PUZZLE</div>
+<div class="day-num" id="dn">ANNI #1</div>
 <div class="clues">
-<div class="clue" id="c1"><div class="clue-lbl">THE CUSTODIAN REVEALS</div><div class="clue-txt" id="c1t"></div></div>
-<div class="clue locked" id="c2"><div class="clue-lbl">THE CUSTODIAN REVEALS</div><div class="clue-txt" id="c2t">Locked...</div></div>
-<div class="clue locked" id="c3"><div class="clue-lbl">THE CUSTODIAN REVEALS</div><div class="clue-txt" id="c3t">Locked...</div></div>
+<div id="c1" class="clue locked">
+<div class="clue-lbl">CLUE 1</div>
+<div id="c1t" class="clue-txt">Locked...</div>
 </div>
-<div class="gsec" id="gsec">
+<div id="c2" class="clue locked">
+<div class="clue-lbl">CLUE 2</div>
+<div id="c2t" class="clue-txt">Locked...</div>
+</div>
+<div id="c3" class="clue locked">
+<div class="clue-lbl">CLUE 3</div>
+<div id="c3t" class="clue-txt">Locked...</div>
+</div>
+</div>
+<div id="gsec" class="gsec">
 <div class="gleft" id="gl">6 ATTEMPTS REMAINING</div>
-<div class="dboxes"><div class="dbox active"></div><div class="dbox"></div><div class="dbox"></div><div class="dbox"></div></div>
-<div class="btns"><button onclick="sub()">NAVIGATE</button><button class="sec" onclick="clr()">CLEAR</button></div>
+<div class="dboxes">
+<div class="dbox"></div>
+<div class="dbox"></div>
+<div class="dbox"></div>
+<div class="dbox"></div>
+</div>
+<input type="number" inputmode="numeric" pattern="[0-9]*" id="hiddenInput" autocomplete="off">
+<div class="btns">
+<button onclick="sub()">SUBMIT</button>
+<button class="sec" onclick="clr()">CLEAR</button>
 </div>
 <div class="hist" id="hist"></div>
-<div class="over" id="over" style="display:none">
-<h2 id="ot"></h2><div class="ans" id="oa"></div><p class="rmsg" id="om"></p><p class="cmsg" id="oc"></p>
-<div class="share"><button class="btn-share" onclick="shr()">SHARE RESULT</button><div class="stxt" id="st"></div></div>
+</div>
+<div id="over" class="over" style="display:none">
+<h2 id="ot">NAVIGATION SUCCESSFUL</h2>
+<div class="ans" id="oa">1969</div>
+<div class="rmsg" id="om">Temporal coordinates identified in 3 attempts</div>
+<div class="cclose" id="oc">"You have proven capable. The path forward through time opens before you. But many moments remain between you and home."</div>
+<div class="st" id="st"></div>
+<button class="btn-share" onclick="shr()">SHARE RESULTS</button>
+</div>
+<div class="streak">
+<div class="shead">CURRENT STREAK</div>
+<div class="snum" id="sn">0</div>
+<div class="sbar"><div class="sfill" id="sf"></div></div>
 </div>
 </div>
 </div>
-<div class="streak"><div><div class="slbl">CURRENT STREAK</div><div class="snum" id="sn">0</div></div><div class="sarc"><div class="sfill" id="sf"></div></div></div>
 <script>
 const D=[
-{y:476,c:["The son of Orestes yielded to a Scirian warlord as purple faded from western soil.","Ravenna's boy-emperor bore the founder's name in cruel irony as Germanic kingdoms divided the corpse.","Odoacer deposed Romulus Augustulus, ending Rome's western empire after a millennium."]},
-{y:800,c:["A bearded king knelt in Peter's basilica at dawn on the Savior's birth, rising with Caesar's ghost upon his brow.","The scholar Alcuin watched from York as Saxons bent and an empire dead four centuries drew breath.","Leo III crowned Charles in Rome on Christmas, reviving imperial title in the west."]},
-{y:1054,c:["Humbert's bull of excommunication hit the altar as east and west severed over a single Latin word.","The patriarch and cardinal exchanged anathemas, splitting Christendom over bread and papal claims.","The Great Schism divided Rome and Constantinople into Catholic and Orthodox churches."]},
-{y:1066,c:["Three kings claimed one throne as a hairy star crossed autumn skies above the narrow sea.","A Norse giant fell at a Yorkshire bridge weeks before the defining southern field.","Harold died at Hastings as Norman arrows ended Anglo-Saxon England forever."]},
-{y:1215,c:["Runnymede's meadow witnessed a Lackland king seal parchment his father would have burned.","Barons armed forced John to acknowledge limits no Plantagenet had accepted.","Magna Carta was sealed in June though John sought papal annulment within weeks."]},
-{y:1347,c:["Genoese galleys fleeing Kaffa carried stowaways in their holds that would empty cathedrals.","Flagellants processed through German towns as Jewish quarters burned on plague accusations.","The Black Death arrived from Crimea, killing a third of Europe over five years."]},
-{y:1453,c:["Mehmed's Hungarian engineer cast bronze that could hurl stone through theodosian triple walls.","The last Constantine died sword in hand as the Kerkoporta gate betrayed the defenders.","Constantinople fell on May 29th, ending Byzantium after 1,123 years."]},
-{y:1492,c:["The Alhambra surrendered its keys as Torquemada's edict expelled Abraham's children.","Three caravels departed Palos seeking Cipangu but found an unnamed continent instead.","Columbus reached San Salvador in October, beginning permanent European-American contact."]},
-{y:1517,c:["Ninety-five propositions questioned Tetzel's coffers as Selim's janissaries entered Cairo.","A Wittenberg monk's Latin complaints went viral via Gutenberg's miracle.","Luther's theses sparked Protestant reformation, splitting Western Christianity permanently."]},
-{y:1588,c:["Philip's Invincible met English fire ships and Protestant winds in the Channel.","Drake's drums beat as Medina Sidonia's crescent formation scattered to Irish rocks.","The Spanish Armada failed, marking Habsburg Spain's naval decline."]},
-{y:1607,c:["Three ships carried Company men to a Powhatan marsh they'd name for their king.","The Flight of Earls ended as Virginia received England's first lasting western foothold.","Jamestown was founded, becoming England's first permanent American colony."]},
-{y:1618,c:["Prague's defenestration launched three decades of German devastation.","Protestant Bohemians threw Habsburg officials from castle windows, igniting continental religious war.","The Thirty Years' War began, ultimately killing eight million in Central Europe."]},
-{y:1649,c:["A Stuart lost his head in Whitehall as Drogheda's walls ran red with Irish blood.","Parliament abolished monarchy and lords, declaring England a commonwealth under Cromwell's sword.","Charles I was executed January 30th after conviction for high treason."]},
-{y:1683,c:["Kara Mustafa's tents ringed Habsburg walls until Sobieski's Winged Hussars charged from Kahlenberg.","Vienna's siege broke on September 12th, turning Ottoman expansion's western tide.","The Polish-Imperial relief routed Ottoman forces, beginning Islam's European retreat."]},
-{y:1707,c:["Two crowns merged through treaty and English gold as Edinburgh's parliament dissolved itself.","The Acts of Union ended Scottish legislative independence, creating Great Britain.","England and Scotland formally united under one parliament and one flag."]},
-{y:1756,c:["Frederick invaded Saxony as Plassey's field secured Bengal and Montreal awaited Wolfe.","Europe's alliances flipped as the first truly global conflict ignited on three continents.","The Seven Years' War began, reshaping European and colonial power balances."]},
-{y:1776,c:["Smith's invisible hand was published as Jefferson's committee drafted separation.","Gibbon's first volume chronicled Rome's fall as Bavaria spawned Weishaupt's secret society.","The Declaration of Independence was approved July 4th in Philadelphia."]},
-{y:1789,c:["The Bastille held seven prisoners when the mob arrived, yet its fall toppled a kingdom.","Washington took oath in New York as Parisian streets ran with aristocratic blood.","The French Revolution erupted July 14th, beginning a decade of terror and transformation."]},
-{y:1803,c:["Napoleon sold Jefferson a million square miles for pennies per acre.","Fulton's steamboat experiment succeeded as French dreams of Caribbean empire drowned in fever.","The Louisiana Purchase doubled American territory for fifteen million dollars."]},
-{y:1815,c:["The hundred days ended on Belgian mud as Tambora's eruption went unnoticed.","Vienna waltzed while redrawing borders and the Corsican faced his final exile.","Napoleon was defeated at Waterloo, ending the Napoleonic Wars permanently."]},
-{y:1848,c:["A specter haunted Europe as barricades rose from Paris to Vienna to Milan.","Frankfurt's assembly debated unification while Marx penned his revolutionary pamphlet.","The Spring of Nations swept Europe though most revolutions ultimately failed."]},
-{y:1859,c:["Natural selection shocked Cambridge while Brown's raid terrified Virginia planters.","Darwin's dangerous idea emerged as Piedmont allied with Paris against Vienna.","On the Origin of Species revolutionized biology and theology forever."]},
-{y:1861,c:["Sumter's guns woke Lincoln's presidency as Wilhelm crowned himself in Berlin.","Alexander freed the serfs as brother prepared to fight brother over bondage.","The American Civil War began when Confederates fired on Fort Sumter."]},
-{y:1865,c:["Sherman's neckties scarred Georgia before Appomattox's handshake ended it.","The 13th Amendment abolished bondage as Booth's derringer fired at Ford's.","Lincoln was assassinated five days after Lee's surrender ended major fighting."]},
-{y:1869,c:["Promontory's golden spike joined coasts as Mendeleev ordered the elements.","Lesseps cut through Sinai sand, linking seas and halving India's voyage.","The Suez Canal opened, revolutionizing trade between Europe and Asia."]},
-{y:1871,c:["Paris Commune burned as Wilhelm crowned himself in Versailles' Hall of Mirrors.","The German Empire unified after defeating France in the Franco-Prussian War.","Germany unified under Prussian leadership, creating Europe's newest great power."]},
-{y:1876,c:["Bell's harmonic telegraph spoke words as Custer met his last stand.","Edison's Menlo Park opened while Ottoman massacres shocked Europe.","Alexander Graham Bell patented the telephone, transforming human communication."]},
-{y:1885,c:["Leopold claimed Congo's rubber while Mahdi's spears took Khartoum.","Berlin's conference carved Africa as Benz's motorwagen first rolled.","The Berlin Conference formalized the Scramble for Africa among European powers."]},
-{y:1898,c:["The Maine's mysterious explosion gifted empire in the Caribbean and Pacific.","Remember the Maine became excuse as Dreyfus divided France.","The Spanish-American War made America an imperial power overnight."]},
-{y:1903,c:["Mensheviks split from Bolsheviks as Kitty Hawk's dunes witnessed twelve seconds of flight.","Ford incorporated while Emmeline founded her militant suffrage union.","The Wright Brothers achieved humanity's first powered, controlled airplane flight."]},
-{y:1905,c:["Bloody Sunday sparked uprising while Einstein shattered Newtonian certainty.","Tsushima's straits witnessed Asia's first modern naval victory over Europe.","Russia's 1905 Revolution forced Nicholas to grant the October Manifesto."]},
-{y:1912,c:["The Manchu dynasty fell as unsinkable hubris met Atlantic ice.","Arizona and New Mexico achieved statehood, completing the continental 48.","RMS Titanic sank on her maiden voyage, killing over 1,500 souls."]},
-{y:1914,c:["Sarajevo's shots ricocheted across alliance chains as Panama's canal opened.","Archduke's blood triggered mobilizations that August turned trenches into graves.","World War I began when Germany invaded Belgium, bringing Britain into the conflict."]},
-{y:1917,c:["Zimmermann's telegram entered American hands as Nicholas abdicated the throne.","Balfour promised Palestine as Lenin's sealed train crossed Germany.","The Bolshevik Revolution overthrew Russia's provisional government in October."]},
-{y:1918,c:["Spanish flu killed more than shellfire as empires dissolved in armistice.","The Romanovs were executed in a Yekaterinburg cellar during Russia's civil war.","World War I ended November 11th at 11 AM after four years of slaughter."]},
-{y:1919,c:["Versailles' mirrors reflected victor's spite as Prohibition's ghost haunted America.","The League convened without America as Amritsar's massacre stained British honor.","The Treaty of Versailles imposed harsh reparations that seeded future conflict."]},
-{y:1929,c:["Valentine's massacre shocked Chicago as Trotsky departed Moscow forever.","Lateran Treaty made Vatican independent while Wall Street's Tuesday went black.","The stock market crashed October 29th, triggering the Great Depression."]},
-{y:1933,c:["Reichstag burned in February as New Deal promised relief and reform.","Hitler appointed chancellor as Roosevelt closed banks in March panic.","The Nazi regime began with Dachau's opening and emergency powers."]},
-{y:1936,c:["Jesse Owens embarrassed Hitler as Spain descended into fratricidal rehearsal.","Edward abdicated for Simpson while Franco's revolt divided the republic.","The Spanish Civil War became Europe's ideological proving ground."]},
-{y:1938,c:["Kristallnacht's broken glass preceded Munich's appeasement and Chamberlain's delusion.","Austria was annexed in March as Czechoslovakia was sacrificed for 'peace.'","Nazi Germany seized Austria and Sudetenland as Europe failed to resist."]},
-{y:1939,c:["Ribbentrop and Molotov shocked the world by shaking hands in August.","Danzig's status triggered guarantees while Franco finally triumphed.","World War II began September 1st when Germany invaded Poland."]},
-{y:1940,c:["Dunkirk's beaches saved an army while Paris fell without a siege.","Churchill growled defiance as the Blitz rained fire on London.","The Battle of Britain raged as RAF pilots saved the island."]},
-{y:1941,c:["Barbarossa shattered the pact as Atlantic Charter outlined postwar dreams.","Infamy came to Oahu on a Sunday morning, dooming isolationism.","Pearl Harbor brought America into World War II on December 7th."]},
-{y:1944,c:["Overlord's beaches ran red as kamikaze doctrine birthed in desperation.","D-Day landings began Europe's liberation while Bretton Woods designed peace.","Allied forces stormed Normandy on June 6th, opening the Western Front."]},
-{y:1945,c:["Roosevelt died in Warm Springs as fire from split atoms painted Japanese cities.","Enola Gay and Bockscar delivered uranium and plutonium holocausts.","Japan surrendered August 15th after atomic bombs destroyed two cities."]},
-{y:1947,c:["Qumran shepherds found ancient scrolls as Truman's doctrine promised containment.","Partition's midnight brought freedom and slaughter to British India.","India and Pakistan gained independence through bloody religious division."]},
-{y:1949,c:["North Atlantic allies signed mutual defense as Mao proclaimed from Tiananmen.","Berlin's airlift ended as Soviets tested their first atomic device.","NATO formed while Communist forces won China's civil war."]},
-{y:1950,c:["Kim's tanks crossed the parallel as McCarthy waved his phantom list.","Inchon's surprise reversed the war before China intervened massively.","The Korean War began when North Korea invaded the South in June."]},
-{y:1953,c:["Stalin's death shifted Kremlin power as Rosenbergs walked to Sing Sing's chair.","Everest was conquered while armistice froze Korea's division.","Watson and Crick published DNA's double helix structure in Nature."]},
-{y:1954,c:["Dien Bien Phu fell as separate but equal died unanimously.","McCarthy's hearings collapsed while Geneva divided Vietnam temporarily.","Brown v. Board ended legal school segregation in America."]},
-{y:1956,c:["Budapest's revolution drowned in Soviet tanks as Suez became Eden's folly.","Elvis swiveled hips while Eisenhower sent troops to Little Rock's schools.","Hungarian Revolution was crushed as Britain and France bungled Suez."]},
-{y:1957,c:["Sputnik's beeps panicked America as Treaties of Rome birthed European unity.","Little Rock's Central High needed federal troops to integrate nine students.","The Soviet Union launched the first artificial satellite, beginning the space race."]},
-{y:1961,c:["Gagarin orbited as Checkpoint Charlie's tanks faced off over a wall's birth.","Bay of Pigs embarrassed Kennedy before Vienna's summit went poorly.","The Berlin Wall rose overnight in August, dividing families for decades."]},
-{y:1962,c:["Algeria's independence ended colonial nightmare as Carson's spring fell silent.","Thirteen October days saw blockade and brinkmanship risk human extinction.","The Cuban Missile Crisis nearly triggered nuclear war between superpowers."]},
-{y:1963,c:["Washington heard a dream in August before Dallas heard gunfire in November.","Vatican II continued under new pope as Profumo scandal rocked Britain.","President Kennedy was assassinated November 22nd in Dealey Plaza."]},
-{y:1968,c:["Tet shattered illusions while King fell in Memphis and Kennedy in LA.","Prague Spring met Warsaw Pact tanks as Chicago police beat protesters.","Martin Luther King Jr. and Robert Kennedy were both assassinated."]},
-{y:1969,c:["Stonewall sparked resistance while Woodstock celebrated peace before Altamont's violence.","Manson's family shattered California dreaming as Nixon began Vietnamization.","Apollo 11 landed humans on the Moon for the first time ever."]},
-{y:1973,c:["Paris accords ended American involvement as Roe legalized and embargo began.","Allende fell in Santiago while Yom Kippur surprised Israel badly.","OPEC's oil embargo triggered energy crisis and Western stagflation."]},
-{y:1975,c:["Saigon fell as Cambodia fell darker and Franco finally died.","Helsinki Accords signed while Pol Pot's revolution began Cambodian genocide.","The Vietnam War ended with Saigon's fall and communist victory."]},
+{y:1066,c:["Normans crossed Channel while Harold marched from Stamford to Hastings.","Harold's eye met an arrow and William claimed divine right.","The Battle of Hastings crowned William and transformed English history."]},
+{y:1215,c:["John signed at Runnymede while crusaders sacked Constantinople.","Magna Carta forced king's seal to parchment limiting royal power.","Rebellious barons forced the king to accept limits on authority."]},
+{y:1347,c:["Black Death arrived on Genoese ships fleeing Crimean siege.","Plague killed a third of Europe as fleas spread Yersinia.","The Black Death pandemic devastated medieval European population."]},
+{y:1453,c:["Constantinople's walls fell while cannons changed warfare forever.","Mehmed breached Theodosian walls ending thousand-year empire.","Constantinople fell to Ottoman conquest, ending the Byzantine Empire."]},
+{y:1492,c:["Columbus landed while Granada fell and Jews were expelled.","Isabella backed voyage to India that reached Caribbean islands instead.","Columbus reached the Americas believing he had found Indies."]},
+{y:1517,c:["Luther nailed theses while Ottomans advanced toward Vienna.","Ninety-five theses challenged indulgences beginning Protestant schism.","Martin Luther sparked the Protestant Reformation in Wittenberg."]},
+{y:1588,c:["Philip's Armada scattered in Channel storms and English cannons.","Drake's fire ships broke Calais formation as gales wrecked fleet.","The Spanish Armada's defeat marked England's rise to power."]},
+{y:1618,c:["Defenestration sparked conflagration that consumed Europe for decades.","Prague's thrown officials survived while Thirty Years War began.","Religious conflict erupted into Europe's most devastating war."]},
+{y:1648,c:["Westphalia treaties ended war while Fronde revolted against Mazarin.","Thirty years ended at Münster establishing sovereign state system.","The Peace of Westphalia established the modern state system."]},
+{y:1688,c:["William landed while James fled and Parliament declared throne vacant.","Glorious Revolution transferred crown without bloodshed in England.","England's Bloodless Revolution established constitutional monarchy principles."]},
+{y:1776,c:["Congress declared independence while Smith published economic treatise.","Thirteen colonies severed ties in Philadelphia declaring natural rights.","The American colonies declared independence from British rule."]},
+{y:1789,c:["Bastille fell while Assembly declared rights and march fetched king.","Estates-General transformed into Assembly abolishing feudal privileges.","The French Revolution began with the storming of Bastille."]},
+{y:1815,c:["Wellington defeated Napoleon at Waterloo ending revolutionary era.","Hundred Days ended at Belgian field while Congress redrew Europe.","Napoleon's final defeat at Waterloo reshaped European politics."]},
+{y:1848,c:["Marx published manifesto while revolutions swept across Europe.","Spring of Nations challenged monarchies from Paris to Vienna.","The Year of Revolutions shook European thrones and social orders."]},
+{y:1865,c:["Lincoln fell at Ford's while Sherman's march had burned Georgia.","Thirteenth Amendment abolished slavery after Appomattox surrender.","The American Civil War ended with slavery's legal abolition."]},
+{y:1914,c:["Archduke's assassination in Sarajevo triggered mobilization cascades.","August guns began firing as alliances pulled empires into war.","World War I erupted from a Balkan crisis into global conflict."]},
+{y:1917,c:["Tsar fell while Lenin returned and Bolsheviks seized Winter Palace.","October Revolution established Soviet state during European war.","The Russian Revolution toppled the Romanov dynasty forever."]},
+{y:1929,c:["Black Tuesday crashed while Hoover proclaimed prosperity's corner.","Wall Street collapsed triggering global depression and dustbowls.","The stock market crash triggered the Great Depression worldwide."]},
+{y:1933,c:["Roosevelt promised New Deal while Hitler gained Enabling Act.","Reichstag fire preceded emergency powers consolidating Nazi control.","Hitler's rise to power began Germany's descent into dictatorship."]},
+{y:1939,c:["Molotov-Ribbentrop divided Poland while Blitzkrieg rolled through Warsaw.","Wehrmacht invaded Poland triggering British and French declarations.","World War II began with Germany's invasion of Poland."]},
+{y:1941,c:["Barbarossa launched while Pearl Harbor pulled America into war.","Hitler invaded Russia as Japan attacked Pacific destroying isolationism.","Operation Barbarossa and Pearl Harbor transformed global warfare."]},
+{y:1945,c:["Mushroom clouds rose twice while Auschwitz's gates opened to horror.","Hiroshima and Nagasaki ended Pacific war after European victory.","Atomic bombs devastated Japan, ending World War II finally."]},
+{y:1947,c:["India partitioned while Marshall Plan rebuilt and Truman declared doctrine.","Midnight's partition created Pakistan as millions migrated violently.","India gained independence but partition sparked massive communal violence."]},
+{y:1948,c:["Israel declared statehood while Berlin airlift defied Soviet blockade.","British Mandate ended as Arab-Israeli war began immediately.","Israel's founding triggered immediate war with neighboring Arab states."]},
+{y:1949,c:["Mao proclaimed republic while NATO formed and Soviets tested bomb.","Communists won civil war as Nationalists fled to Taiwan.","The People's Republic of China was established under Mao."]},
+{y:1950,c:["Kim's army crossed parallel while McCarthy waved lists in Wheeling.","Korean invasion triggered UN response and MacArthur's Inchon landing.","The Korean War began with North Korea's invasion southward."]},
+{y:1953,c:["Stalin died while Rosenbergs executed and DNA's helix discovered.","Armistice froze Korea while Khrushchev began struggle for succession.","The Korean War armistice divided the peninsula at 38th parallel."]},
+{y:1954,c:["Dien Bien Phu fell while Brown v Board declared segregation unconstitutional.","French Indochina collapsed as Vietnam divided at Geneva Conference.","The French defeat at Dien Bien Phu ended colonial Indochina."]},
+{y:1956,c:["Soviets crushed Hungary while Suez Crisis humiliated Britain and France.","Khrushchev's secret speech denounced Stalin beginning Thaw period.","Soviet tanks rolled into Budapest crushing the Hungarian uprising."]},
+{y:1957,c:["Sputnik orbited while Little Rock Nine integrated Central High.","Soviet satellite shocked America beginning space race rivalry.","Sputnik's launch initiated the superpower space race competition."]},
+{y:1961,c:["Bay of Pigs failed while Wall rose dividing Berlin overnight.","Kennedy botched invasion as Khrushchev backed concrete barrier.","The Berlin Wall was erected, physically dividing East and West."]},
+{y:1962,c:["Missiles in Cuba brought world to brink of nuclear war.","Kennedy blockaded island while Khrushchev's ships turned back.","The Cuban Missile Crisis brought humanity closest to nuclear war."]},
+{y:1963,c:["Kennedy shot in Dallas while March on Washington heard Dream.","Dealey Plaza's shots shocked nation as Warren investigated.","President Kennedy's assassination in Dallas traumatized America deeply."]},
+{y:1965,c:["Marines landed at Da Nang as Malcolm X was shot.","Johnson escalated Vietnam while Watts burned and Selma marched.","American combat troops deployed en masse to Vietnam War."]},
+{y:1968,c:["Tet Offensive shocked America while King and Kennedy were shot.","Prague Spring crushed while Chicago convention descended into violence.","Assassinations, war protests, and upheaval defined this turbulent year."]},
+{y:1969,c:["Armstrong stepped on moon while Woodstock gathered and Manson killed.","Apollo 11 fulfilled Kennedy's pledge as counterculture peaked.","Humanity first set foot on the lunar surface successfully."]},
+{y:1972,c:["Nixon opened China while Watergate burglars were caught.","Munich Olympics massacred as détente thawed Cold War.","Nixon's China visit and Watergate break-in defined American politics."]},
+{y:1973,c:["Yom Kippur surprised Israel while OPEC embargoed oil.","Arab coalition attacked on holiest day triggering energy crisis.","The October War and oil embargo reshaped global economics."]},
+{y:1975,c:["Saigon fell while Khmer Rouge emptied Phnom Penh.","Helicopters evacuated embassy roof ending America's longest war.","South Vietnam collapsed as the last Americans fled Saigon."]},
 {y:1979,c:["Thatcher won while Tehran seized hostages and Soviets entered Afghanistan.","Shah fled as Ayatollah returned, transforming Persia into theocracy.","Iran's Islamic Revolution overthrew the Pahlavi dynasty permanently."]},
 {y:1980,c:["Lennon died on Dakota steps while Solidarity struck Gdańsk shipyards.","Reagan won as Iraq invaded Iran beginning eight years of war.","Ronald Reagan was elected president, beginning the conservative revolution."]},
 {y:1986,c:["Challenger exploded on ascent while Chernobyl's core melted down.","Marcos fled Manila as Aquino's People Power triumphed peacefully.","The Chernobyl disaster contaminated vast areas with deadly radiation."]},
@@ -182,20 +203,20 @@ function updStr(w){const s=loadStr(),d=getDay();if(w){if(d===s.l+1||s.l===0){s.c
 function dispStr(){const s=loadStr();document.getElementById('sn').textContent=s.c;document.getElementById('sf').style.width=Math.min(s.c/30*100,100)+'%'}
 function toggleTheme(){document.body.classList.toggle('light-mode');const isLight=document.body.classList.contains('light-mode');document.querySelector('.theme-toggle').textContent=isLight?'☀️':'🌙';try{localStorage.setItem('anniTheme',isLight?'light':'dark')}catch(e){}}
 function loadTheme(){try{const theme=localStorage.getItem('anniTheme');if(theme==='light'){document.body.classList.add('light-mode');document.querySelector('.theme-toggle').textContent='☀️'}}catch(e){}}
-function focusInput(){const input=document.getElementById('mobileInput');if(input){input.focus()}}
-function start(){const st=loadSt();if(st&&(st.w||st.l)){showDone(st);return}document.getElementById('intro').style.display='none';document.getElementById('game').style.display='block';init();focusInput()}
+function focusInput(){const input=document.getElementById('hiddenInput');if(input){input.focus({preventScroll:true})}}
+function start(){const st=loadSt();if(st&&(st.w||st.l)){showDone(st);return}document.getElementById('intro').style.display='none';document.getElementById('game').style.display='block';init();setTimeout(focusInput,100)}
 function init(){cur=getPuz();const st=loadSt();if(st&&!st.w&&!st.l){gs=st.gs;gs.forEach(g=>addH(g,1));if(gs.length>=2){document.getElementById('c2').classList.remove('locked');document.getElementById('c2t').textContent=cur.c[1]}if(gs.length>=4){document.getElementById('c3').classList.remove('locked');document.getElementById('c3t').textContent=cur.c[2]}}else{gs=[]}inp='';document.getElementById('hist').innerHTML='';document.getElementById('over').style.display='none';document.getElementById('gsec').style.display='block';document.getElementById('c1').classList.remove('locked');if(gs.length<2)document.getElementById('c2').classList.add('locked');if(gs.length<4)document.getElementById('c3').classList.add('locked');document.getElementById('c1t').textContent=cur.c[0];if(gs.length<2)document.getElementById('c2t').textContent='Locked...';if(gs.length<4)document.getElementById('c3t').textContent='Locked...';upd();updL();document.getElementById('dn').textContent='ANNI #'+getDay();dispStr()}
 function showDone(st){document.getElementById('intro').style.display='none';document.getElementById('game').style.display='block';cur=getPuz();gs=st.gs;gs.forEach(g=>addH(g,1));document.getElementById('c1').classList.remove('locked');document.getElementById('c2').classList.remove('locked');document.getElementById('c3').classList.remove('locked');document.getElementById('c1t').textContent=cur.c[0];document.getElementById('c2t').textContent=cur.c[1];document.getElementById('c3t').textContent=cur.c[2];fin(st.w,1);document.getElementById('dn').textContent='ANNI #'+getDay();dispStr()}
-function upd(){const b=document.querySelectorAll('.dbox');b.forEach((x,i)=>{x.textContent=inp[i]||'';x.style.color=inp[i]?'inherit':'';x.classList.remove('active','filled');if(i===inp.length&&inp.length<4)x.classList.add('active');else if(i<inp.length)x.classList.add('filled')})}
-function clr(){inp='';upd();const mobileInput=document.getElementById('mobileInput');if(mobileInput)mobileInput.value=''}
-function sub(){if(inp.length!==4)return;const g=parseInt(inp);gs.push(g);inp='';upd();if(gs.length>=2){document.getElementById('c2').classList.remove('locked');document.getElementById('c2t').textContent=cur.c[1]}if(gs.length>=4){document.getElementById('c3').classList.remove('locked');document.getElementById('c3t').textContent=cur.c[2]}addH(g,0);updL();if(g===cur.y){saveSt(gs,1,0);updStr(1);fin(1,0)}else if(gs.length>=6){saveSt(gs,0,1);updStr(0);fin(0,0)}}
+function upd(){const b=document.querySelectorAll('.dbox');b.forEach((x,i)=>{x.textContent=inp[i]||'';x.classList.remove('active','filled');if(i===inp.length&&inp.length<4)x.classList.add('active');else if(i<inp.length)x.classList.add('filled')})}
+function clr(){inp='';upd();focusInput()}
+function sub(){if(inp.length!==4)return;const g=parseInt(inp);gs.push(g);inp='';upd();if(gs.length>=2){document.getElementById('c2').classList.remove('locked');document.getElementById('c2t').textContent=cur.c[1]}if(gs.length>=4){document.getElementById('c3').classList.remove('locked');document.getElementById('c3t').textContent=cur.c[2]}addH(g,0);updL();if(g===cur.y){saveSt(gs,1,0);updStr(1);fin(1,0)}else if(gs.length>=6){saveSt(gs,0,1);updStr(0);fin(0,0)}focusInput()}
 function addH(g,r){const h=document.getElementById('hist'),d=document.createElement('div');d.className='gitem';let f='',a='';if(g===cur.y){d.classList.add('win');f='COORDINATES CONFIRMED'}else if(g<cur.y){d.classList.add('low');a='↑';f='FORWARD IN TIME'}else{d.classList.add('high');a='↓';f='BACKWARD IN TIME'}d.innerHTML=`<span class="gyear">${g}</span><span class="fb ${g===cur.y?'win':''}">${a} ${f}</span>`;r?h.appendChild(d):h.insertBefore(d,h.firstChild)}
 function updL(){const l=6-gs.length;document.getElementById('gl').textContent=`${l} ATTEMPT${l!==1?'S':''} REMAINING`}
 function fin(w,r){document.getElementById('gsec').style.display='none';document.getElementById('over').style.display='block';document.getElementById('c2').classList.remove('locked');document.getElementById('c3').classList.remove('locked');document.getElementById('c2t').textContent=cur.c[1];document.getElementById('c3t').textContent=cur.c[2];if(w){document.getElementById('ot').textContent='NAVIGATION SUCCESSFUL';document.getElementById('oa').textContent=cur.y;document.getElementById('om').textContent=`Temporal coordinates identified in ${gs.length} attempt${gs.length!==1?'s':''}`;document.getElementById('oc').textContent='"You have proven capable. The path forward through time opens before you. But many moments remain between you and home."'}else{document.getElementById('ot').textContent='NAVIGATION FAILED';document.getElementById('oa').textContent=cur.y;document.getElementById('om').textContent='Temporal coordinates lost';document.getElementById('oc').textContent='"You remain trapped in this moment. Time flows around you, but you cannot move with it. Perhaps the next era will prove more yielding."'}if(!r)genSh(w)}
 function genSh(w){let t=`Anni #${getDay()} ${w?gs.length:'X'}/6\n\n`;gs.forEach(g=>{t+=g===cur.y?'🟩':g<cur.y?'🔵':'🔴'});document.getElementById('st').textContent=t;document.getElementById('st').style.display='block'}
 function shr(){navigator.clipboard.writeText(document.getElementById('st').textContent).then(()=>{const b=document.querySelector('.btn-share'),o=b.textContent;b.textContent='COPIED!';setTimeout(()=>b.textContent=o,2e3)})}
 document.addEventListener('keydown',e=>{if(document.getElementById('gsec').style.display==='none')return;if(e.key>='0'&&e.key<='9'&&inp.length<4){inp+=e.key;upd()}else if(e.key==='Backspace'){inp=inp.slice(0,-1);upd()}else if(e.key==='Enter'&&inp.length===4)sub();else if(e.key==='Escape')clr()});
-window.onload=()=>{loadTheme();const st=loadSt();st&&(st.w||st.l)?showDone(st):(dispStr(),document.getElementById('dn').textContent='ANNI #'+getDay());const mobileInput=document.getElementById('mobileInput');if(mobileInput){mobileInput.addEventListener('input',function(e){const val=this.value.replace(/\D/g,'').slice(0,4);this.value=val;inp=val;upd()});mobileInput.addEventListener('keypress',function(e){if(e.key==='Enter'&&inp.length===4){e.preventDefault();sub()}})}};
+window.onload=()=>{loadTheme();const st=loadSt();st&&(st.w||st.l)?showDone(st):(dispStr(),document.getElementById('dn').textContent='ANNI #'+getDay());const hiddenInput=document.getElementById('hiddenInput');if(hiddenInput){hiddenInput.addEventListener('input',e=>{const val=e.target.value.replace(/\D/g,'');inp=val.slice(0,4);upd();e.target.value=inp});hiddenInput.addEventListener('keydown',e=>{if(e.key==='Enter'&&inp.length===4){e.preventDefault();sub()}else if(e.key==='Backspace'&&inp.length>0){e.preventDefault();inp=inp.slice(0,-1);upd();e.target.value=inp}else if(e.key==='Escape'){e.preventDefault();clr();e.target.value=''}});document.querySelectorAll('.dbox').forEach(box=>{box.addEventListener('click',focusInput);box.addEventListener('touchstart',e=>{e.preventDefault();focusInput()},{passive:false})})}};
 </script>
 </body>
 </html>
